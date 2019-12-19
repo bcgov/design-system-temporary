@@ -15,7 +15,17 @@
     <%= require('html-loader!./partials/header.html') %>
     <main class="bcgov-main" id="main-content">
       <div class="section-content">
-        <%= htmlWebpackPlugin.options.bodyHtml %>
+        <% if (htmlWebpackPlugin.options.status === 'draft') { %>
+        <img
+          src="https://img.shields.io/badge/Recommended-Draft-orange.svg"
+          alt="Draft Status"
+        />
+        <% } %> <% if (htmlWebpackPlugin.options.status === 'production') { %>
+        <img
+          src="https://img.shields.io/badge/-Production-green.svg"
+          alt="Production Status"
+        />
+        <% } %> <%=htmlWebpackPlugin.options.bodyHtml %>
       </div>
       <div class="section-sidebar">
         <%= htmlWebpackPlugin.options.sidebar %>

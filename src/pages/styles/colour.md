@@ -1,8 +1,10 @@
 ---
+description: 
+title: Colour Pallete.
+status: draft
 ---
 
 
-![Status](https://img.shields.io/badge/Recommended-Draft-orange.svg)
 
 # Colour Pallete
 

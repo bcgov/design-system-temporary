@@ -53,7 +53,7 @@ module.exports = env => {
         Path.join(config.paths.resources, "scripts/index.js"),
         Path.join(config.paths.resources, "styles/index.scss")
       ],
-      dummy: Path.join(config.paths.resources, "scripts/dummy.js")
+      components: Path.join(config.paths.resources, "scripts/components.js")
     },
     output: {
       path: config.paths.dist,

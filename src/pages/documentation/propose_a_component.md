@@ -4,7 +4,7 @@ title: Propose a New Component
 status: draft
 ---
 
-# **Propose a New Component**
+# Propose a New Component
 
 Anyone can propose a new component for inclusion in the B.C. government Design System. Component requests or proposals are considered by the Design System team. If proposed components or proposed updates meet evaluation criteria, they are added to the backlog for development and inclusion.
 

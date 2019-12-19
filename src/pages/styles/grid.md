@@ -1,8 +1,8 @@
 ---
 description: 
-title: Styles
+title: Grid
 status: draft
 ---
 
-# Styles
+# Grid
 Cras ultricies ligula sed magna dictum porta. Proin eget tortor risus. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi.

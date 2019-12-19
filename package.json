@@ -2,14 +2,23 @@
   "name": "@bcgov/design-system-web",
   "version": "0.0.1",
   "description": "British Columbia Design System Web Site",
+  "keywords": [
+    "British Columbia",
+    "Design System",
+    "Web Components"
+  ],
+  "author": "Shawn Turple",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bcgov/design-system-temporary.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bcgov/design-system-temporary/issues"
+  },
   "scripts": {
     "build": "webpack  --progress --config webpack.js  --colors",
     "start": "webpack-dev-server --env.development --watch --open --config webpack.js  --colors",
-    "s": "webpack-dev-server --env.development --watch --progress --config webpack.js  --colors ",
     "deploy": "gh-pages -d html"
-  },
-  "browser": {
-    "fs": false
   },
   "browserslist": [
     "> 1.5%",
@@ -43,7 +52,6 @@
     "@types/node": "^12.12.21",
     "@types/webpack": "^4.41.0",
     "@types/webpack-dev-server": "^3.9.0",
-    "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^2.0.2",
     "copy-webpack-plugin": "^5.1.1",
@@ -66,14 +74,11 @@
     "webpack": "^4.41.3",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.10.0",
-    "webpack-merge": "^4.2.2",
-    "webpack-shell-plugin": "^0.5.0"
+    "webpack-merge": "^4.2.2"
   },
   "license": "MIT",
   "dependencies": {
     "@babel/polyfill": "^7.7.0",
-    "@bcgov/web-components": "git+https://github.com/bcgov/design-system-web-components.git",
-    "@fortawesome/fontawesome-svg-core": "^1.2.26",
-    "@fortawesome/free-solid-svg-icons": "^5.12.0"
+    "@bcgov/web-components": "git+https://github.com/bcgov/design-system-web-components.git"
   }
 }

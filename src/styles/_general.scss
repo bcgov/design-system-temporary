@@ -40,10 +40,11 @@ table {
     &:visited,
     &:focus {
       color: $bcgov-blue-links;
+      text-decoration: underline;
     }
     &:hover {
       color: $bcgov-blue-links;
-      text-decoration: underline;
+      text-decoration: none;
     }
     i {
       color: $bcgov-blue-links;
@@ -53,6 +54,11 @@ table {
   p {
     line-height: 1.6;
     margin-bottom: 30px;
+  }
+  .section-sidebar {
+    h3 {
+      color: $bcgov-blue-links;
+    }
   }
 }
 
@@ -70,5 +76,12 @@ table {
         grid-column: 1 / 4;
       }
     }
+  }
+}
+
+.header-button-container {
+  margin-top: 10px;
+  a {
+    font-size: 0.8rem !important;
   }
 }

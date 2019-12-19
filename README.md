@@ -1,106 +1,84 @@
----
-description: How to install web components.
-title:  BCGov Web Components.
-author: sturple
----
+# British Columbia Government Design System 
 
-# BCGov Design System Web Components
+The Design System helps developers and designers build better digital products and services.
 
-## Install
+It’s a collection of digital resources and tools – including a library of reusable UI/interface components and design patterns. The system makes it easier and faster to build custom B.C. government websites and applications.
 
-```
-npm i git+https://github.com/bcgov/design-system-web-components.git
-```
-
-## Use with module bundler (Webpack, React, Angular)
-
-### Use with CSS
--index.js file
-```javascript
-import "core-js/stable"; // makes it ie11 compatible, needs to be first item.
-.....
-import "@bcgov/web-components/html/dist/bcgov-web-components/bcgov-web-components.css";
-import { applyPolyfills, defineCustomElements } from "@bcgov/web-components/html/dist/loader";
-
-applyPolyfills().then(() => {
-  defineCustomElements(window);
-});
-```
-
-### Use with SCSS
-
-index.js file
-```javascript
-import "core-js/stable"; // makes it ie11 compatible, needs to be first item.
-.....
-import "@bcgov/web-components/src/components/sass/style.scss";
-import { applyPolyfills, defineCustomElements } from "@bcgov/web-components/html/dist/loader";
-
-applyPolyfills().then(() => {
-  defineCustomElements(window);
-});
-```
-
-* See [StencilJS implementation into frameworks](https://stenciljs.com/docs/overview)
-
-### Making IE11 compatable.
-```npm npm i corejs ```
-
-package.json file
-```json
-  "browserslist": [
-    "> 1.5%",
-    "ie >= 11",
-    "edge >= 17"
-  ],
-  "babel": {
-    "presets": [
-      [
-        "@babel/preset-env",
-        {
-          "useBuiltIns": "usage",
-          "corejs": "3.0.0",
-          "targets": {
-            "esmodules": true,
-            "ie": "11"
-          }
-        }
-      ]
-    ]
-  }
-```
+Components are collectively built by the government community, meet accessibility standards and are open for input and improvement.
 
 
-## Description
-
-The BCGov Web components was created to give a standard look and feel to meet the criteria of the Design System  
-Here is how it does it:
-- Uses a technology call [Web Components](https://www.webcomponents.org/)
-- Uses a compiler that generates Web Components called [StencilJS](https://stenciljs.com/)
-- Uses a testing framework [Jest](https://jestjs.io/) and [Puppeteer](https://pptr.dev/).
-- Uses [sass](https://sass-lang.com/) files
-- Uses **Webpack** for creating web pages for the Design System.
+## Project Status
+Alpha
 
 
-## Accessibility
+## Development and Updates of Website.
 
-All components should meet or exceed [WCAG 2.0 AA](https://www.w3.org/TR/WCAG20/) standards Although this is the intention, this is very much a **work in progress**.
+* git clone https://github.com/bcgov/design-system-temporary.git
+* cd ./design-system-temporary/
+* npm install
+* npm run
+    * npm run build (builds producition files)
+    * npm run start (starts dev server with hot reload)
+    * npm run deploy (Creats the gh-pages branch and pushes it to repo)  Make sure you build before this process
 
-## Components
 
-- **Collapse**  `<bcgov-collapse>` *Not Implenented*
-- **Beta** [Beta](beta.html) `<bcgov-beta>`
-- **Button** [Button](button.html) `<bcgov-button>`
-- **Callout** [Callout](callout.html) `bcgov-callout>`
-- **Footer** [Footer](footer.html) `<bcgov-footer>`
-- **Forms**  `<bcgov-forms><bcgov-radio><bcgov-checkbox>` *Not Implemented*
-- **Header** [Header](header.html) `<bcgov-header>`
-    - logo
-    - headline
-    - skip links for accessibility
-- **Menu** [Menu](menu.html) `<bcgov-menu>`
-    - links
-    - format (alignment: {left|center|right})
-    - submenu
-    - accessibility, and accessibility instructions
-- **Tabs**  `<bcgov-tabs><bcgov-tab>` *Not Implemented*
+
+## Layout
+
+├── CHANGELOG.md
+├── LICENSE
+├── README.md
+├── html
+│   ├── components
+│   │   ├── beta.html
+│   │   ├── breadcrumb.html
+│   │   ├── button.html
+│   │   ├── callout.html
+│   │   ├── carousel.html
+│   │   ├── footer.html
+│   │   ├── form.html
+│   │   ├── header.html
+│   │   ├── index.html
+│   │   ├── menu.html
+│   │   ├── search.html
+│   │   └── section-divider.html
+│   ├── css
+│   │   ├── app.css
+│   │   └── components.css
+│   ├── documentation
+│   │   ├── component_workflow.html
+│   │   ├── developer.html
+│   │   ├── index.html
+│   │   ├── propose_a_component.html
+│   │   └── prototyping_tools.html
+│   ├── index.html
+│   ├── js
+│   │   ├── app.js
+│   │   └── components.js
+│   └── styles
+│       ├── accessibility.html
+│       ├── colour-pallette.html
+│       └── index.html
+├── package-lock.json
+├── package.json
+├── pull_request_template.md
+├── src
+│   ├── html **Templates**
+│   │   ├── layout.html
+│   │   ├── partials
+│   │   └── sidebar
+│   ├── pages
+│   │   ├── components **Components Pages**
+│   │   ├── documentation **Documentation Pages**
+│   │   ├── index.md **Home Page**
+│   │   └── styles **Styles Pages**
+│   ├── scripts
+│   │   ├── build.js **Builds pages**
+│   │   ├── components.js
+│   │   └── index.js
+│   └── styles
+│       ├── _general.scss
+│       ├── _mixins.scss
+│       ├── _variables.scss
+│       └── index.scss
+└── webpack.js
