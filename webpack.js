@@ -5,12 +5,15 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const Webpack = require("webpack");
 
-const loadPlugins = (assets, baseurl) => {
+const loadPlugins = baseurl => {
   let plugins = createHTMLPages(baseurl);
   plugins.push(new CleanWebpackPlugin());
   plugins.push(
     new CopyWebpackPlugin([
-      { context: assets, from: "**/*", copyUnmodified: true }
+      {
+        from: Path.resolve(__dirname, "src/html/**/*"),
+        to: Path.resolve(__dirname, "html")
+      }
     ])
   );
   plugins.push(
@@ -89,7 +92,7 @@ module.exports = env => {
       modules: false,
       publicPath: true
     },
-    plugins: loadPlugins(config.paths.assets, baseurl),
+    plugins: loadPlugins(baseurl),
     module: {
       rules: [
         /*
