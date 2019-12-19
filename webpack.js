@@ -121,7 +121,7 @@ module.exports = env => {
           options: {
             limit: 4096,
             outputPath: (url, resourcePath, context) => {
-              return ` / vendor / ${url}`;
+              return `vendor/${url}`;
             },
             publicPath: "../vendor/",
             name: `[name].[ext]`

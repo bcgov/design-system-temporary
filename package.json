@@ -42,20 +42,20 @@
     ]
   },
   "devDependencies": {
-    "@babel/cli": "^7.7.5",
-    "@babel/core": "^7.7.5",
+    "@babel/cli": "^7.7.7",
+    "@babel/core": "^7.7.7",
     "@babel/plugin-proposal-class-properties": "^7.7.4",
     "@babel/plugin-proposal-decorators": "^7.7.4",
     "@babel/plugin-syntax-dynamic-import": "^7.7.4",
     "@babel/plugin-transform-classes": "^7.7.4",
-    "@babel/preset-env": "^7.7.6",
+    "@babel/preset-env": "^7.7.7",
     "@types/node": "^12.12.21",
     "@types/webpack": "^4.41.0",
     "@types/webpack-dev-server": "^3.9.0",
     "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^2.0.2",
     "copy-webpack-plugin": "^5.1.1",
-    "core-js": "^3.5.0",
+    "core-js": "^3.6.0",
     "css-loader": "^3.4.0",
     "eslint": "^5.16.0",
     "eslint-loader": "^2.1.2",
@@ -71,14 +71,15 @@
     "showdown": "^1.9.1",
     "showdown-highlight": "^2.1.3",
     "style-loader": "^0.23.1",
-    "webpack": "^4.41.3",
+    "webpack": "^4.41.4",
     "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.10.0",
+    "webpack-dev-server": "^3.10.1",
     "webpack-merge": "^4.2.2"
   },
   "license": "MIT",
   "dependencies": {
     "@babel/polyfill": "^7.7.0",
+    "@bcgov/bc-sans": "^1.0.1",
     "@bcgov/web-components": "git+https://github.com/bcgov/design-system-web-components.git"
   }
 }

@@ -38,7 +38,6 @@ const getHtmlWebpackPlugin = (filename, mdfile, sidebar = "") => {
     template: Path.resolve(__dirname, `../html/layout.html`)
   };
   const data = merge(options, parseMarkDown(mdfile));
-  console.log(data.filename);
   return new HtmlWebpackPlugin(data);
 };
 
