@@ -24,7 +24,7 @@ Alpha
 
 
 ## Layout
-
+```
 ├── CHANGELOG.md
 ├── LICENSE
 ├── README.md
@@ -82,3 +82,4 @@ Alpha
 │       ├── _variables.scss
 │       └── index.scss
 └── webpack.js
+```
