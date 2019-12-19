@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <meta
+      name="description"
+      content="<%= htmlWebpackPlugin.options.description %>"
+    />
+    <meta name="author" content="<%= htmlWebpackPlugin.options.author %>" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="<%= htmlWebpackPlugin.options.baseurl %>assets/favicon.ico"
+    />
+  </head>
+
+  <body is="bcgov-styles" class="<%= htmlWebpackPlugin.options.bodyClass %>">
+    <%= require('html-loader!./partials/header.html') %>
+    <bcgov-menu
+      id="main-navigation"
+      instructions="Use arrow keys to navigate between menuitems, spacebar to expand submenus, escape key to close
+  submenus, enter to activate menuitems."
+      primary
+      alignment="left"
+      breakpoint="778"
+    >
+      <a href="<%= htmlWebpackPlugin.options.baseurl %>index.html">Home</a>
+      <a href="<%= htmlWebpackPlugin.options.baseurl %>styles/index.html"
+        >Styles</a
+      >
+      <a href="<%= htmlWebpackPlugin.options.baseurl %>components/index.html"
+        >Components</a
+      >
+      <a href="<%= htmlWebpackPlugin.options.baseurl %>documentation/index.html"
+        >Documentation</a
+      >
+    </bcgov-menu>
+
+    <main class="bcgov-main" id="main-content">
+      <div class="section-content">
+        <% if (htmlWebpackPlugin.options.status === 'draft') { %>
+        <img
+          src="https://img.shields.io/badge/Recommended-Draft-orange.svg"
+          alt="Draft Status"
+        />
+        <% } %> <% if (htmlWebpackPlugin.options.status === 'production') { %>
+        <img
+          src="https://img.shields.io/badge/-Production-green.svg"
+          alt="Production Status"
+        />
+        <% } %> <%=htmlWebpackPlugin.options.bodyHtml %>
+      </div>
+      <div class="section-sidebar">
+        <%= htmlWebpackPlugin.options.sidebar %>
+      </div>
+    </main>
+    <%= require('html-loader!./partials/footer.html') %>
+  </body>
+</html>
