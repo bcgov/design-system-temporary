@@ -5,8 +5,8 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const Webpack = require("webpack");
 
-const loadPlugins = assets => {
-  let plugins = createHTMLPages();
+const loadPlugins = (assets, baseurl) => {
+  let plugins = createHTMLPages(baseurl);
   plugins.push(new CleanWebpackPlugin());
   plugins.push(
     new CopyWebpackPlugin([
@@ -23,11 +23,17 @@ const loadPlugins = assets => {
       filename: "css/[name].css"
     })
   );
+  plugins.push(
+    new Webpack.DefinePlugin({
+      "process.env.baseurl": JSON.stringify(process.env.baseurl)
+    })
+  );
   return plugins;
 };
 
 module.exports = env => {
   const isProduction = undefined === env || !env.development;
+  const baseurl = env.baseurl || "/";
   const config = {
     paths: {
       resources: Path.resolve(__dirname, "./src/"),
@@ -65,12 +71,6 @@ module.exports = env => {
       inline: true,
       contentBase: Path.join(__dirname, "src"),
       watchContentBase: true,
-      before: function(app, server) {
-        console.error("before....");
-      },
-      injectHot: compilerConfig => {
-        console.log("after");
-      },
       disableHostCheck: true,
       host: "0.0.0.0",
       useLocalIp: false //set to true to use actual ip address
@@ -89,7 +89,7 @@ module.exports = env => {
       modules: false,
       publicPath: true
     },
-    plugins: loadPlugins(config.paths.assets),
+    plugins: loadPlugins(config.paths.assets, baseurl),
     module: {
       rules: [
         /*

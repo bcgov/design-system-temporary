@@ -16,7 +16,7 @@
     "url": "https://github.com/bcgov/design-system-temporary/issues"
   },
   "scripts": {
-    "build": "webpack  --progress --config webpack.js  --colors",
+    "build": "webpack  --progress --config webpack.js  --colors --env.baseurl https://bcgov.github.io/design-system-temporary/",
     "start": "webpack-dev-server --env.development --watch --open --config webpack.js  --colors",
     "deploy": "gh-pages -d html"
   },
