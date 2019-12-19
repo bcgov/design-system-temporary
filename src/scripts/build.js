@@ -28,7 +28,8 @@ const parseMarkDown = mdfile => {
  * @param {string} sidebar
  * @return {HTMLWebpackPlugin}
  */
-const getHtmlWebpackPlugin = (filename, mdfile, sidebar = "", baseurl) => {
+const getHtmlWebpackPlugin = (filename, mdfile, sidebar = "") => {
+  const baseurl = "index.html" === filename ? "" : "../";
   let options = {
     filename: filename,
     sidebar: sidebar,
@@ -36,25 +37,25 @@ const getHtmlWebpackPlugin = (filename, mdfile, sidebar = "", baseurl) => {
     bodyClass: sidebar.length > 10 ? "has-sidebar" : "",
     template: Path.resolve(__dirname, `../html/layout.html`)
   };
-  return new HtmlWebpackPlugin(merge(options, parseMarkDown(mdfile)));
+  const data = merge(options, parseMarkDown(mdfile));
+  console.log(data.filename);
+  return new HtmlWebpackPlugin(data);
 };
 
 /**
  * Home Page.
  */
-const createHomePage = baseurl => {
+const createHomePage = () => {
   return getHtmlWebpackPlugin(
     `index.html`,
-    Path.join(__dirname, `../pages/index.md`),
-    "",
-    baseurl
+    Path.join(__dirname, `../pages/index.md`)
   );
 };
 
 /**
  * Creates all the pages inside folders within the Pages Folder.
  */
-const createPages = (htmlplugin, baseurl) => {
+const createPages = htmlplugin => {
   const directories = ["styles", "documentation", "components"];
 
   directories.forEach(function(directory) {
@@ -73,8 +74,7 @@ const createPages = (htmlplugin, baseurl) => {
         getHtmlWebpackPlugin(
           `${directory}/${page.replace(".md", ".html")}`,
           Path.join(__dirname, `../pages/${directory}/${page}`),
-          sidebar,
-          baseurl
+          sidebar
         )
       );
     });
@@ -85,7 +85,7 @@ const createPages = (htmlplugin, baseurl) => {
 /**
  * Creates components from @bcgov/web-components/src/components.
  */
-const createComponents = (htmlplugin, baseurl) => {
+const createComponents = htmlplugin => {
   const sidebar_components = parseMarkDown(
     Path.join(__dirname, `../html/sidebar/components.md`)
   ).bodyHtml;
@@ -115,8 +115,7 @@ const createComponents = (htmlplugin, baseurl) => {
               __dirname,
               `../../node_modules/@bcgov/web-components/src/components/${page}/readme.md`
             ),
-            sidebar_components,
-            baseurl
+            sidebar_components
           )
         );
       }
@@ -130,10 +129,10 @@ const createComponents = (htmlplugin, baseurl) => {
 module.exports = function createHTMLPages(baseurl) {
   let htmlplugin = Array();
   /** Home Page. */
-  htmlplugin.push(createHomePage(baseurl));
+  htmlplugin.push(createHomePage());
   /** All Pages */
-  createPages(htmlplugin, baseurl);
+  createPages(htmlplugin);
   /** Create Components */
-  createComponents(htmlplugin, baseurl);
+  createComponents(htmlplugin);
   return htmlplugin;
 };
