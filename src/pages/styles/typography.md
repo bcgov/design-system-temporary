@@ -8,6 +8,14 @@ status: draft
 
 Good typography maintains a clear hierarchy of information and structures the content to help users understand and navigate your service.
 
+```css
+html {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #313132;
+}
+```
+
 ## BC Sans
 
 The standard font for B.C. Government digital services is BC Sans. BC Sans is an open source font family, and is a modified version of Noto Sans, developed by Google. BC Sans includes modifications to support Indigenous languages in British Columbia.
@@ -87,3 +95,34 @@ url('assets/fonts/BCSans/BCSans-BoldItalic.woff') format('woff'); / Modern Brows
 ### Font Stack
 
 `font-family: ‘BCSans’, ‘Noto Sans’, Arial, sans-serif;`
+
+
+## Paragraphs
+
+### Example
+Members of the public service are the politically impartial government employees who are responsible for carrying out the day-to-day activities of government and for delivering public services to the citizens of B.C.
+
+```css
+p {
+  margin: 0 0 2rem;
+}
+```
+
+## Headings
+
+Heading are sized based on a Minor Third (1.200) scale to achieve a harmonious increase of sizes.
+
+<h1>Heading 1 - 2.074rem <span style="font-size: 1rem; font-weight: 400;">(18px/37.32px, 16px/33.18px)</span></h1>
+<h2>Heading 2 - 1.728rem <span style="font-size: 1rem; font-weight: 400;">(18px/31.10px, 16px/27.65px)</span></h2>
+<h3>Heading 3 - 1.44rem <span style="font-size: 1rem; font-weight: 400;">(18px/25.92px, 16px/23.04px)</span></h3>
+<h4>Heading 4 - 1.2rem <span style="font-size: 1rem; font-weight: 400;">(18px/21.60px, 16px/19.20px)</span></h4>
+
+```css
+h1, h2, h3, h4 {
+  margin: 2rem 0 0.5rem;
+}
+
+h1 {
+  margin-top: 0;
+}
+```

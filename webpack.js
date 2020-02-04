@@ -11,7 +11,7 @@ const loadPlugins = baseurl => {
   plugins.push(
     new CopyWebpackPlugin([
       {
-        from: Path.resolve(__dirname, "src/html/**/*"),
+        from: Path.resolve(__dirname, "src/html/assets/*"),
         to: Path.resolve(__dirname, "html")
       }
     ])
@@ -58,10 +58,7 @@ module.exports = env => {
       }
     },
     entry: {
-      app: [
-        Path.join(config.paths.resources, "scripts/index.js"),
-        Path.join(config.paths.resources, "styles/index.scss")
-      ],
+      app: [Path.join(config.paths.resources, "scripts/index.js")],
       components: Path.join(config.paths.resources, "scripts/components.js")
     },
     output: {
